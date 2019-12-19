@@ -1,0 +1,81 @@
+﻿<Window x:Class="Lab_15_WPF_Climbing_Application.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Lab_15_WPF_Climbing_Application"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid Background="#E7D1FF">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Label x:Name="Header" Content="My Climbs" FontWeight="Bold" FontSize="25" Grid.Column="3" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" Margin="0,0,0,0" VerticalAlignment="Stretch" VerticalContentAlignment="Center" Background="#D1ECFF"/>
+        <Label x:Name="LabelClimbID" Content="ID" Grid.Column="4" Grid.Row="1" Background="#DFE1FF"/>
+        <Label x:Name="LabelClimbName" Content="Name" Grid.Column="5" Grid.Row="1" Background="#DFE1FF"/>
+        <Label x:Name="LabelClimbGrade" Content="Grade" Grid.Column="6" Grid.Row="1" Background="#DFE1FF"/>
+        <Label x:Name="LabelClimbDone" Content="Done" Grid.Column="7" Grid.Row="1" Background="#DFE1FF"/>
+        <Label x:Name="LabelLocation" Content="Location" Grid.Column="4" Grid.Row="3" Background="#DFE1FF"/>
+        <TextBox x:Name="TextBoxClimbID" Grid.Column="4" Grid.Row="2" Background="#BECCE8"/>
+        <TextBox x:Name="TextBoxClimbName" Grid.Column="5" Grid.Row="2" Background="#BECCE8"/>
+        <TextBox x:Name="TextBoxClimbGrade" Grid.Column="6" Grid.Row="2" Background="#BECCE8"/>
+        <TextBox x:Name="TextBoxClimbLocation" Grid.Column="5" Grid.Row="3" Background="#BECCE8"/>
+        <CheckBox x:Name="CheckboxClimbDone" Grid.Column="7" Grid.Row="2"/>
+        <Button x:Name="ButtonAdd"  Content="Add" HorizontalAlignment="Stretch" Margin="0,0,0,0" Grid.Row="1" VerticalAlignment="Stretch" Background="#BECCE8" Click="ButtonAdd_Click"/>
+        <Button x:Name="ButtonEdit" Content="Edit" IsEnabled="False" HorizontalAlignment="Stretch" Margin="0,0,0,0" Grid.Row="1" Grid.Column="1" VerticalAlignment="Stretch" Background="#BECCE8" Click="ButtonEdit_Click"/>
+        <Button x:Name="ButtonDelete" Content="Delete" HorizontalAlignment="Stretch" Margin="0,0,0,0" Grid.Row="1" Grid.Column="2" VerticalAlignment="Stretch" Background="#BECCE8" Click="ButtonDelete_Click"/>
+        <TabControl x:Name="TabController" Grid.ColumnSpan="4" Grid.Column="0" HorizontalAlignment="Stretch" Margin="0,0" Grid.Row="2" Grid.RowSpan="3" VerticalAlignment="Stretch" Background="#D1ECFF">
+            <TabItem>
+                <TabItem.Header>
+                    <Label x:Name="LabelIndoors" Content="Indoors" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" MouseDown="LabelIndoors_MouseDown"/>
+                </TabItem.Header>
+                <TabPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                    <ListView  x:Name="ListViewIndoors"     SelectionChanged="ListView_SelectionChanged"    Grid.ColumnSpan="8" HorizontalAlignment="Stretch" Margin="0,0" Grid.Row="3" VerticalAlignment="Stretch">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Header="ID" DisplayMemberBinding="{Binding ClimbID}" />
+                                <GridViewColumn Header="Climb Name" DisplayMemberBinding="{Binding ClimbName}" />
+                                <GridViewColumn Header="Grade" DisplayMemberBinding="{Binding ClimbGrade}" />
+                                <GridViewColumn Header="Done?" DisplayMemberBinding="{Binding ClimbDone}" />
+                                <GridViewColumn Header="Location" DisplayMemberBinding="{Binding ClimbLocation}" />
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                </TabPanel>
+            </TabItem>
+            <TabItem>
+                <TabItem.Header>
+                    <Label x:Name="LabelOutdoors" Content="Outdoors" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" MouseDown="LabelOutdoors_MouseDown"/>
+                </TabItem.Header>
+                <TabPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                    <ListView  x:Name="ListViewOutdoors"     SelectionChanged="ListView_SelectionChanged"    Grid.ColumnSpan="8" HorizontalAlignment="Stretch" Margin="0,0" Grid.Row="3" VerticalAlignment="Stretch">
+                        <ListView.View >
+                            <GridView >
+                                <GridViewColumn Header="ID" DisplayMemberBinding="{Binding ClimbID}" />
+                                <GridViewColumn Header="Climb Name" DisplayMemberBinding="{Binding ClimbName}" />
+                                <GridViewColumn Header="Grade" DisplayMemberBinding="{Binding ClimbGrade}" />
+                                <GridViewColumn Header="Done?" DisplayMemberBinding="{Binding ClimbDone}" />
+                                <GridViewColumn Header="Location" DisplayMemberBinding="{Binding ClimbLocation}" />
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                </TabPanel>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>

@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Lab_24_Serialisation\Lab_24_Serialisation.csproj" />
+    <ProjectReference Include="..\Lab_25_Serialise_JSON\Lab_25_Serialise_JSON.csproj" />
+  </ItemGroup>
+
+</Project>
